@@ -27,6 +27,12 @@ The Rhinovirus constitutes a significant etiological factor in human respiratory
 
 ## <a id="installation"></a>Installation
 
+You can install the package using the following command:
+
+```
+pip install rhinotype
+```
+
 ## <a id="getprototypeseqs"></a>getprotypeseqs
 
 ## <a id="readfasta"></a>readfasta
