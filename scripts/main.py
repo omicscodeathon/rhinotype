@@ -4,6 +4,4 @@ from readfasta import readFasta
 
 getprototypeseqs(destinationFolder = "RVRefs")
 
-test = readFasta(fastaFile = "RVRefs/RVRefs.fasta")
-
-print(test['sequences'])
+test = readFasta(fastaFile = "data/test.fasta")
