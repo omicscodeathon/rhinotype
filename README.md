@@ -33,6 +33,12 @@ You can install the package using the following command:
 pip install rhinotype
 ```
 
+#### Load the package
+
+```
+import rhinotype
+```
+
 ## <a id="getprototypeseqs"></a>getprotypeseqs
 
 ## <a id="readfasta"></a>readfasta
