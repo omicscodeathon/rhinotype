@@ -25,6 +25,8 @@ The Rhinovirus constitutes a significant etiological factor in human respiratory
 
 ## <a id="workflow"></a>Workflow
 
+## <a id="installation"></a>Installation
+
 ## <a id="getprototypeseqs"></a>getprotypeseqs
 
 ## <a id="readfasta"></a>readfasta
