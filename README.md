@@ -11,13 +11,14 @@ rhinotype: A Python Package for the Classification of Rhinoviruses
 6. [SNPeek](#snpeek)
 7. [assigngenotypes](#assigngenotypes)
 8. [pairwisedistances](#pairwisedistances)
-9. [countSNPs](#countsnps)
-10. [plotfrequency](#plotfrequency)
-11. [plotdistances](#plotdistances)
-12. [plottree](#plottree)
-13. [plotAA](#plotaa)
-14. [Citation](#citation)
-15. [Contributors](#contributors)
+9. [overallmeandistance](#overallmeandistance)
+10. [countSNPs](#countsnps)
+11. [plotfrequency](#plotfrequency)
+12. [plotdistances](#plotdistances)
+13. [plottree](#plottree)
+14. [plotAA](#plotaa)
+15. [Citation](#citation)
+16. [Contributors](#contributors)
 
 ## <a id="background"></a>Background 
 
@@ -48,6 +49,8 @@ import rhinotype
 ## <a id="assigngenotypes"></a>assigngenotypes
 
 ## <a id="pairwisedistances"></a>pairwisedistances
+
+## <a id="overallmeandistance"></a>overallmeandistance
 
 ## <a id="countsnps"></a>countSNPs
 
