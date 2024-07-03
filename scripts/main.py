@@ -1,7 +1,15 @@
 from getprototypeseqs import getprototypeseqs
 
-from readfasta import readFasta
+from readfasta import read_fasta
+
+from SNPeek import SNPeek
 
 getprototypeseqs(destinationFolder = "RVRefs")
 
-test = readFasta(fastaFile = "data/test.fasta")
+test = read_fasta(fasta_file = "data/test.fasta")
+
+print(test)
+
+fasta_file = read_fasta(fasta_file="data/test.fasta")
+
+SNPeek(fasta_file)
