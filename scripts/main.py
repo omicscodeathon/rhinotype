@@ -4,7 +4,7 @@ from readfasta import read_fasta
 
 from SNPeek import SNPeek
 
-getprototypeseqs(destinationFolder = "RVRefs")
+getprototypeseqs()
 
 test = read_fasta(fasta_file = "data/test.fasta")
 
