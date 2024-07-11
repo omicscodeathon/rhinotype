@@ -26,6 +26,8 @@ The Rhinovirus constitutes a significant etiological factor in human respiratory
 
 ## <a id="workflow"></a>Workflow
 
+![Workflow](https://github.com/omicscodeathon/rhinotyper/raw/main/man/figures/workflow.png)
+
 ## <a id="installation"></a>Installation
 
 You can install the package using the following command:
