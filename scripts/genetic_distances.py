@@ -17,7 +17,6 @@ def delete_missing_data_sites(seqs):
     
     return cleaned_seqs
 
-
 def count_snps_helper(fasta_data, gap_deletion=True):
     refs = fasta_data['sequences']
     ref_headers = fasta_data['headers']
