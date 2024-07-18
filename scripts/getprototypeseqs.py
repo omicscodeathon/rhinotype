@@ -1,13 +1,11 @@
 import shutil, os
 
-path = "data/prototypes.fasta"
-
 def getprototypeseqs(destinationFolder="RVRefs"):
+    path = os.path.join(os.path.dirname(__file__), '../data/prototypes.fasta')
 
     # if directory called output not present, create it and copy the file
     if not os.path.exists(destinationFolder):
         os.makedirs(destinationFolder)
 
-    shutil.copyfile(path, f"{destinationFolder}/RVRefs.fasta")
-
+    shutil.copyfile(path, os.path.join(os.path.dirname(__file__), f"../{destinationFolder}/RVRef.fasta"))
     print(f"The reference sequence have been downloaded to {destinationFolder} directory")

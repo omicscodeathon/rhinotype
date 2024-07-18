@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from Bio import SeqIO
 import matplotlib.pyplot as plt
@@ -59,6 +60,7 @@ def SNPeek(fastaData, showLegend=False):
                     facecolor="white", framealpha=0.7)
 
     # Save the plot as a PNG file
-    plt.savefig('figures/SNPeek.png')
+    path = os.path.join(os.path.dirname(__file__), '../figures/SNPeek.png')
+    plt.savefig(path)
     # Show the plot
     plt.show()
