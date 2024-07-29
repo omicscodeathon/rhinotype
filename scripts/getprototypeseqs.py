@@ -7,5 +7,5 @@ def getprototypeseqs(destinationFolder="RVRefs"):
     if not os.path.exists(destinationFolder):
         os.makedirs(destinationFolder)
 
-    shutil.copyfile(path, os.path.join(os.path.dirname(__file__), f"../{destinationFolder}/RVRef.fasta"))
+    shutil.copyfile(path, os.path.join(os.path.dirname(__file__), f"../{destinationFolder}/RVRefs.fasta"))
     print(f"The reference sequence have been downloaded to {destinationFolder} directory")

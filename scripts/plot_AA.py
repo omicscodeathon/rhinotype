@@ -1,6 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import os
 
-def readAA(AAfastaFile):
+def read_AA(AAfastaFile):
     # Read all lines from the FASTA file
     with open(AAfastaFile, 'r') as file:
         lines = file.readlines()
@@ -40,8 +42,8 @@ def readAA(AAfastaFile):
     # Return a dictionary containing the sequences and their corresponding headers
     return {'sequences': seqList, 'headers': headerList}
 
-def plotAA(AAfastaFile, showLegend=False):
-    fastaData = readAA(AAfastaFile)  # Read file
+def plot_AA(AAfastaFile, showLegend=False):
+    fastaData = read_AA(AAfastaFile)  # Read file
     
     sequences = fastaData['sequences']
     seqNames = fastaData['headers']
@@ -67,15 +69,13 @@ def plotAA(AAfastaFile, showLegend=False):
         diff = compareSequences(sequences[0], sequences[i])
         diff['color'] = diff['subsType'].map(colorMap).fillna('gray')
         diffList.append(diff)
-    
-    # Plotting
-    import matplotlib.pyplot as plt
-    
-    plt.figure(figsize=(10, 6))
+
+    # Plot the differences
+    plt.figure(figsize=(15, 6))
     plt.xlim(1, proteinLength)
     plt.ylim(0.5, len(sequences))
     plt.xlabel(f"Protein Position of {seqNames[-1]}, acting as reference")
-    plt.yticks(range(1, len(sequences) + 1), seqNames, rotation=90)
+    plt.yticks(range(1, len(sequences) + 1), seqNames, rotation=0)
     
     # Plot small vertical bars for each difference using mapped colors
     for i, diff in enumerate(diffList):
@@ -87,4 +87,6 @@ def plotAA(AAfastaFile, showLegend=False):
         plt.legend(["+ve charged", "-ve charged", "Polar", "Non-polar", "Other"],
                    loc='upper left', bbox_to_anchor=(1, 1), framealpha=0.7)
     
+    path = os.path.join(os.path.dirname(__file__), '../figures/AA.png')
+    plt.savefig(path)
     plt.show()
