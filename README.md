@@ -67,3 +67,13 @@ import rhinotype
 ## <a id="citation"></a>Citation
 
 ## <a id="contributors"></a>Contributors
+
+1. [Ephantus Wambui](https://github.com/Ephantus-Wambui)
+
+2. [Daniel Okoro](https://github.com/danny6200)
+
+3. [Andrew Acheampong](https://github.com/AcheampongAndy)
+
+4. [Parcelli Jepchirchir](https://github.com/Parcelli)
+
+5. [Manase Aloo](https://github.com/manasealoo)
