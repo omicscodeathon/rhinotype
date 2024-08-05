@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 def plot_frequency(assigned_types_df, show_legend=False):
     # Add 'species' column based on the first letter of 'assignedType'
@@ -37,4 +38,6 @@ def plot_frequency(assigned_types_df, show_legend=False):
     
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
+    path = os.path.join(os.path.dirname(__file__), '../figures/frequency.png')
+    plt.savefig(path)
     plt.show()

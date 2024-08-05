@@ -4,11 +4,11 @@ import os
 from getprototypeseqs import getprototypeseqs
 from readfasta import read_fasta
 from SNPeek import SNPeek
-# from assign_types import assign_types
+from assign_types import assign_types
 from pairwise_distances import pairwise_distances
-# from overall_mean_distance import overall_mean_distance
+from overall_mean_distance import overall_mean_distance
 from count_SNPs import count_snp
-# from plot_frequency import plot_frequency
+from plot_frequency import plot_frequency
 from plot_distances import plot_distances
 from plot_tree import plot_tree
 from plot_AA import plot_AA
@@ -17,35 +17,37 @@ from plot_AA import plot_AA
 getprototypeseqs()
 
 # Function 2: read_fasta
-test = read_fasta(fasta_file = "data/test.fasta")
-print(test)
+test = os.path.join("data", "test.fasta")
+fasta_data = read_fasta(fasta_file = test)
+
+print(fasta_data)
 
 # Function 3: SNPeek
-fasta_file = read_fasta(fasta_file="data/test.fasta")
-SNPeek(fasta_file)
+SNPeek(fasta_data)
 
 # Function 4: assign_types
-# assign_types()
+input_align = os.path.join("data", "input_aln.fasta")
+fasta_align = read_fasta(fasta_file=input_align)
+
+genotypes = assign_types(fasta_align, model="p-distance")
+
+print(genotypes)
 
 # Function 5: pairwise_distances
-test = os.path.join("data", "input_aln.fasta")
-fastaD = read_fasta(test)
-output = pairwise_distances(fastaD, "p-distance", gap_deletion=True)
+output = pairwise_distances(fasta_align, "p-distance", gap_deletion=True)
 
 # Function 6: overall_mean_distance
-# overall_mean_distance(output)
+overall_mean_distance(fasta_align, model="p-distance", gap_deletion=True)
 
 # Function 7: count_snp
-test = os.path.join("data", "test.fasta")
-fastaData = read_fasta(test)
-count_snp(fastaData)
+count_snp(fasta_data)
 
 # Function 8: plot_frequency
+genotypes = assign_types(fasta_align, model="p-distance", gap_deletion=True)
+plot_frequency(genotypes)
 
 # Function 9: plot_distances
-test = os.path.join("data", "input_aln.fasta")
-fastaData = read_fasta(test)
-distance_to_prototypes = pairwise_distances(fastaData, "p-distance")
+distance_to_prototypes = pairwise_distances(fasta_align, "p-distance")
 plot_distances(distance_to_prototypes)
 
 # Function 10: plot_tree
