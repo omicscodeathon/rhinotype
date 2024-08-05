@@ -26,7 +26,7 @@ Among the major causes of human respiratory infections, rhinovirus causes around
 
 ## <a id="workflow"></a>Workflow
 
-![Workflow](https://raw.githubusercontent.com/omicscodeathon/rhinotype/2cf3d0a9f3086fa45aa5183d8149f35bb8b9dee9/figures/rhinotype%20workflow.svg?token=AOBMVDJ2BSISDG3GQPR2QYDGTTRF4)
+![Workflow](figures/rhinotype%20workflow.svg)
 
 ## <a id="installation"></a>Installation
 
