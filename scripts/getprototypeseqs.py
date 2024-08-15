@@ -1,7 +1,7 @@
 import shutil, os
 
 def getprototypeseqs(destinationFolder="RVRefs"):
-    path = os.path.join(os.path.dirname(__file__), '../data/prototypes.fasta')
+    path = os.path.join(os.path.dirname(__file__), '../data/vp1_prototypes.fasta')
 
     # if directory called output not present, create it and copy the file
     if not os.path.exists(destinationFolder):

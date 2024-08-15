@@ -17,7 +17,7 @@ from plot_AA import plot_AA
 getprototypeseqs()
 
 # Function 2: read_fasta
-test = os.path.join("data", "test.fasta")
+test = os.path.join("data", "vp1_test.fasta")
 fasta_data = read_fasta(fasta_file = test)
 
 print(fasta_data)
@@ -26,12 +26,13 @@ print(fasta_data)
 SNPeek(fasta_data)
 
 # Function 4: assign_types
-input_align = os.path.join("data", "input_aln.fasta")
+input_align = os.path.join("data", "vp1_align.fasta")
 fasta_align = read_fasta(fasta_file=input_align)
 
 genotypes = assign_types(fasta_align, model="p-distance")
 
-print(genotypes)
+# Print first 5 genotypes
+print(genotypes.head())
 
 # Function 5: pairwise_distances
 output = pairwise_distances(fasta_align, "p-distance", gap_deletion=True)
@@ -40,7 +41,7 @@ output = pairwise_distances(fasta_align, "p-distance", gap_deletion=True)
 overall_mean_distance(fasta_align, model="p-distance", gap_deletion=True)
 
 # Function 7: count_snp
-count_snp(fasta_data)
+print(count_snp(fasta_data))
 
 # Function 8: plot_frequency
 genotypes = assign_types(fasta_align, model="p-distance", gap_deletion=True)
@@ -54,5 +55,5 @@ plot_distances(distance_to_prototypes)
 plot_tree(distance_to_prototypes)
 
 # Function 11: plot_AA
-test = os.path.join("data", "test.translated.fasta")
+test = os.path.join("data", "vp1_test_translated.fasta")
 plot_AA(test)
