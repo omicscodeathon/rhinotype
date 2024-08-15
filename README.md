@@ -26,7 +26,7 @@ Among the major causes of human respiratory infections, rhinovirus causes around
 
 ## <a id="workflow"></a>Workflow
 
-![Workflow](https://raw.githubusercontent.com/omicscodeathon/rhinotype/2cf3d0a9f3086fa45aa5183d8149f35bb8b9dee9/figures/rhinotype%20workflow.svg?token=AOBMVDJ2BSISDG3GQPR2QYDGTTRF4)
+![Workflow](figures/rhinotype%20workflow.svg)
 
 ## <a id="installation"></a>Installation
 
@@ -44,9 +44,51 @@ import rhinotype
 
 ## <a id="getprototypeseqs"></a>getprotypeseqs
 
+Get the prototype sequences of the Rhinovirus genotypes. Making both VP1 and VP4 sequences available. The user should then combine their sequences together with their sequences and align them using MAFFT or any other alignment tool. Then the user should specify where the prototype sequences should be stored, if not specified the getprototypeseqs command will create RvRefs directory and store protoype sequences, by default.
+
+Example:
+
+```
+rhinotype.getprototypeseqs()
+```
+
+Using own dataset:
+
+```
+rhinotype.getprototypeseqs(destination_folder="path to output folder")
+```
+
 ## <a id="readfasta"></a>readfasta
 
+Reads the alignments/sequences. Compares the input sequences and pads the short sequences with - until they are long as the longest sequence. The sequences are then stored in a dictionary with the sequence name as the key and the sequence as the value.
+
+Example:
+
+```
+test = os.path.join(os.path.dirname(__file__), "test.fasta")
+rhinotype.readfasta(fasta_file=test)
+```
+
+Using own dataset:
+
+```
+rhinotype.readfasta(fasta_file="path to fasta file")
+```
+
 ## <a id="snpeek"></a>SNPeek
+
+SNPeek function visualizes single nuclotide polymorphisms(SNPs) using the users sequences, relative to a specified reference sequence. To specify a reference sequence, the user should move the sequence to the bottom of the alignment. Substitutions are color coded by nucleotide: A = green, T = red, C = blue, G = yellow. The user can specify the output file name, if not specified the output file will be named "SNPeek.png". By default the legend will be False, if the user wants to include the legend, they should set the legend to True.
+
+Example:
+
+```
+rhinotype.SNPeek(fasta_file=test)
+```
+Using own dataset:
+
+```
+rhinotype.SNPeek(fasta_file="path to fasta file",  show_legend=False, output_file="output file name")
+```
 
 ## <a id="assigngenotypes"></a>assigngenotypes
 
@@ -67,3 +109,13 @@ import rhinotype
 ## <a id="citation"></a>Citation
 
 ## <a id="contributors"></a>Contributors
+
+1. [Ephantus Wambui](https://github.com/Ephantus-Wambui)
+
+2. [Daniel Okoro](https://github.com/danny6200)
+
+3. [Andrew Acheampong](https://github.com/AcheampongAndy)
+
+4. [Parcelli Jepchirchir](https://github.com/Parcelli)
+
+5. [Manase Aloo](https://github.com/manasealoo)

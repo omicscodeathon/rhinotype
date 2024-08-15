@@ -1,9 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 def plot_frequency(assigned_types_df, show_legend=False):
     # Add 'species' column based on the first letter of 'assignedType'
     assigned_types_df['species'] = assigned_types_df['assignedType'].str[0]
+
+    # Save to csv file assigned types
+    path = os.path.join(os.path.dirname(__file__), '../data/vp1_assigned_types.csv')
+    assigned_types_df.to_csv(path, index=False)
     
     # Aggregate counts by assignedType
     types_counts = assigned_types_df.groupby('assignedType').size().reset_index(name='query')
@@ -37,4 +42,6 @@ def plot_frequency(assigned_types_df, show_legend=False):
     
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
+    path = os.path.join(os.path.dirname(__file__), '../figures/frequency.png')
+    plt.savefig(path)
     plt.show()

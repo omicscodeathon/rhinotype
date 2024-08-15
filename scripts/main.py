@@ -1,40 +1,58 @@
-import os
+# Import scripts
 from getprototypeseqs import getprototypeseqs
 from readfasta import read_fasta
 from SNPeek import SNPeek
-from genetic_distances import calc_p_distance, calc_jukes_cantor_distance, calc_kimura_2p_distance, calc_tamura_3p_distance
-from pairwise_distances import pairwise_distances
 from assign_types import assign_types
-from plot_distances import plot_distances
+from pairwise_distances import pairwise_distances
+from overall_mean_distance import overall_mean_distance
+from count_SNPs import count_snp
 from plot_frequency import plot_frequency
+from plot_distances import plot_distances
+from plot_tree import plot_tree
+from plot_AA import plot_AA
 
-#getprototypeseqs()
+# Function 1: getprototypeseqs
+getprototypeseqs()
 
-path = os.path.join(os.path.dirname(__file__), '../data/test.fasta')
+# Function 2: read_fasta
+test = os.path.join("data", "vp1_test.fasta")
+fasta_data = read_fasta(fasta_file = test)
 
-#test = read_fasta(fasta_file = path)
+print(fasta_data)
 
-#print(test)
+# Function 3: SNPeek
+SNPeek(fasta_data)
 
-#fasta_file = read_fasta(fasta_file = path)
+# Function 4: assign_types
+input_align = os.path.join("data", "vp1_align.fasta")
+fasta_align = read_fasta(fasta_file=input_align)
 
-#SNPeek(fasta_file)
+genotypes = assign_types(fasta_align, model="p-distance")
 
-fasta_data = read_fasta(path)
+# Print first 5 genotypes
+print(genotypes.head())
 
-# Calculate different distances
-#p_distances = calc_p_distance(fasta_data)
-#jc_distances = calc_jukes_cantor_distance(fasta_data)
-#k2p_distances = calc_kimura_2p_distance(fasta_data)
-#tamura_distances = calc_tamura_3p_distance(fasta_data)
-assigned_types_df = assign_types(fasta_data, model="JC")
-#result = pairwise_distances(fasta_data, gap_deletion=True)
+# Function 5: pairwise_distances
+output = pairwise_distances(fasta_align, "p-distance", gap_deletion=True)
 
-#print("p-Distances:\n", p_distances)
-#print("Jukes-Cantor Distances:\n", jc_distances)
-#print("Kimura 2-Parameter Distances:\n", k2p_distances)
-#print("Tamura 3-Parameter Distances:\n", tamura_distances)
-print("assigned_type_df:\n", assigned_types_df)
-plot_frequency(assigned_types_df, show_legend=True)
-#print(result)
-#plot_distances(result)
+# Function 6: overall_mean_distance
+overall_mean_distance(fasta_align, model="p-distance", gap_deletion=True)
+
+# Function 7: count_snp
+print(count_snp(fasta_data))
+
+# Function 8: plot_frequency
+genotypes = assign_types(fasta_align, model="p-distance", gap_deletion=True)
+plot_frequency(genotypes)
+
+# Function 9: plot_distances
+distance_to_prototypes = pairwise_distances(fasta_align, "p-distance")
+plot_distances(distance_to_prototypes)
+
+# Function 10: plot_tree
+plot_tree(distance_to_prototypes)
+
+# Function 11: plot_AA
+test = os.path.join("data", "vp1_test_translated.fasta")
+plot_AA(test)
+>>>>>>> 29a0b85e853ced9a9812ec16314495c209164cab

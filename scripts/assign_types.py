@@ -8,7 +8,7 @@ def assign_types(fasta_data, model='p-distance', gap_deletion=True, threshold=0.
     # Read prototype sequences
     try:
         # Read prototype sequences
-        path = os.path.join(os.path.dirname(__file__), '../data/prototypes.csv')
+        path = os.path.join(os.path.dirname(__file__), '../data/vp1_test.csv')
         prototypes_df = pd.read_csv(path)
     except FileNotFoundError:
         raise Exception("Prototypes file not found. Please check the file path.")
