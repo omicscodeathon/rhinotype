@@ -1,3 +1,4 @@
+import os
 # Import scripts
 from getprototypeseqs import getprototypeseqs
 from readfasta import read_fasta
@@ -15,7 +16,7 @@ from plot_AA import plot_AA
 getprototypeseqs()
 
 # Function 2: read_fasta
-test = os.path.join("data", "vp1_test.fasta")
+test = os.path.join(os.path.dirname(__file__), '../data/vp1_test.fasta')
 fasta_data = read_fasta(fasta_file = test)
 
 print(fasta_data)
@@ -24,7 +25,7 @@ print(fasta_data)
 SNPeek(fasta_data)
 
 # Function 4: assign_types
-input_align = os.path.join("data", "vp1_align.fasta")
+input_align = os.path.join(os.path.dirname(__file__), '../data/vp1_align.fasta')
 fasta_align = read_fasta(fasta_file=input_align)
 
 genotypes = assign_types(fasta_align, model="p-distance")
@@ -53,6 +54,5 @@ plot_distances(distance_to_prototypes)
 plot_tree(distance_to_prototypes)
 
 # Function 11: plot_AA
-test = os.path.join("data", "vp1_test_translated.fasta")
+test = os.path.join(os.path.dirname(__file__), '../data/vp1_test_translated.fasta')
 plot_AA(test)
->>>>>>> 29a0b85e853ced9a9812ec16314495c209164cab
