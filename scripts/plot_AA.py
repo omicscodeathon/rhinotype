@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+from getprototypeseqs import user_input
 
 def read_AA(AAfastaFile):
     # Read all lines from the FASTA file
@@ -86,7 +87,7 @@ def plot_AA(AAfastaFile, showLegend=False):
     if showLegend:  # Add a semi-transparent legend in the top-left corner
         plt.legend(["+ve charged", "-ve charged", "Polar", "Non-polar", "Other"],
                    loc='upper left', bbox_to_anchor=(1, 1), framealpha=0.7)
-    
+    plt.title(f"{user_input} Amino Acid Differences from Reference Sequence")
     path = os.path.join(os.path.dirname(__file__), '../figures/AA.png')
     plt.savefig(path)
     plt.show()

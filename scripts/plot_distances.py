@@ -3,6 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 import pandas as pd
+from getprototypeseqs import user_input
 
 def plot_distances(distances_matrix):
     # Ensure the input is a DataFrame to leverage labels
@@ -12,7 +13,7 @@ def plot_distances(distances_matrix):
     # Plotting the heatmap
     plt.figure(figsize=(18, 14))
     sns.heatmap(distances_matrix, cmap='YlOrRd', cbar=True, xticklabels=True, yticklabels=True)
-    plt.title("Genetic distances between sequences")
+    plt.title(f"{user_input} genetic distances between sequences")
     
     # Rotate the labels and adjust the font size for better readability
     plt.xticks(rotation=90, fontsize=4)

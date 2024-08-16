@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+from getprototypeseqs import user_input
 
 def plot_frequency(assigned_types_df, show_legend=False):
     # Add 'species' column based on the first letter of 'assignedType'
@@ -31,7 +32,7 @@ def plot_frequency(assigned_types_df, show_legend=False):
     # Plot the bar chart
     plt.figure(figsize=(10, 6))
     plt.bar(types_counts['assignedType'], types_counts['query'], color=colors)
-    plt.title("Frequency of Types")
+    plt.title(f"{user_input} frequency types")
     plt.xlabel("RV Type")
     plt.ylabel("Count")
     
