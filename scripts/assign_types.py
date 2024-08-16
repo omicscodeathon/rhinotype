@@ -2,13 +2,19 @@ import os
 import pandas as pd
 from genetic_distances import calc_p_distance, calc_jukes_cantor_distance, calc_kimura_2p_distance, calc_tamura_3p_distance
 from pairwise_distances import pairwise_distances
+from getprototypeseqs import user_input
 
 
 def assign_types(fasta_data, model='p-distance', gap_deletion=True, threshold=0.105):
     # Read prototype sequences
     try:
         # Read prototype sequences
-        path = os.path.join(os.path.dirname(__file__), '../data/vp1_test.csv')
+        if user_input.capitalize() == 'Vp1':
+            path = os.path.join(os.path.dirname(__file__), '../data/vp1_test.csv')
+        elif user_input.capitalize() == 'Vp4/2':
+            path = os.path.join(os.path.dirname(__file__), '../data/prototypes.csv')
+        else:
+            raise Exception("Please provide either VP1 or VP4/2 prototypes csv")
         prototypes_df = pd.read_csv(path)
     except FileNotFoundError:
         raise Exception("Prototypes file not found. Please check the file path.")

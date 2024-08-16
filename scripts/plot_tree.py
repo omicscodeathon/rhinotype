@@ -3,6 +3,7 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import squareform
 import matplotlib.pyplot as plt
 import os
+from getprototypeseqs import user_input
 
 def plot_tree(distance_matrix):
     # Convert the data to a numpy array if it's not already
@@ -17,7 +18,7 @@ def plot_tree(distance_matrix):
     # Plot the dendrogram
     plt.figure(figsize=(15, 8))
     dendrogram(hc, leaf_rotation=90, leaf_font_size=8)
-    plt.title("A simple tree")
+    plt.title(f"{user_input} simple tree")
     plt.xlabel("")
     plt.ylabel("Genetic distance")
     path = os.path.join(os.path.dirname(__file__), '../figures/tree.png')

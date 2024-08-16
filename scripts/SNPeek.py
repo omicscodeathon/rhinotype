@@ -3,6 +3,7 @@ import pandas as pd
 from Bio import SeqIO
 import matplotlib.pyplot as plt
 import numpy as np
+from getprototypeseqs import user_input
 
 # read fasta function to read sequences from a FASTA file
 def read_fasta(fasta_file):
@@ -58,7 +59,7 @@ def SNPeek(fastaData, showLegend=False):
                     handlelength=0.8, markerfirst=False, 
                     loc="upper left", bbox_to_anchor=(1, 1),
                     facecolor="white", framealpha=0.7)
-
+    plt.title(f"{user_input} Nucleotide Differences from Reference Sequence")
     # Save the plot as a PNG file
     path = os.path.join(os.path.dirname(__file__), '../figures/SNPeek.png')
     plt.savefig(path)
