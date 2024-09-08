@@ -121,7 +121,7 @@ Parameters:
     - ```"Kimura2p"```: Kimura 2-parameter model.
     - ```"Tamura3p"```: Tamura 3-parameter model.
 - ```gap_deletion``` (bool): Whether to apply gap deletion in the distance calculation (default is True).
-```Output```: The function returns a numpy array containing the pairwise distances between the sequences
+- ```Output```: The function returns a numpy array containing the pairwise distances between the sequences
 
 Example:
 
